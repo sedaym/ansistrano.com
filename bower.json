@@ -1,0 +1,19 @@
+{
+  "name": "ansistrano.com",
+  "version": "0.1.0",
+  "homepage": "http://ansistrano.com",
+  "authors": [
+    "Carlos Buenosvinos <carlos.buenosvinos@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "flat-ui": "~2.1.3"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
