@@ -34,7 +34,7 @@
 @import url("http://fonts.googleapis.com/css?family=Montserrat:400,700");
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700");
 /*
-* http://meyerweb.com/eric/tools/css/reset/ 
+* http://meyerweb.com/eric/tools/css/reset/
 * v2.0 | 20110126
 * License: none (public domain)
 */
@@ -423,7 +423,7 @@ sup {
   -ms-transition: all 0.5s cubic-bezier(0.7, 0, 0.3, 1);
   -o-transition: all 0.5s cubic-bezier(0.7, 0, 0.3, 1);
   transition: all 0.5s cubic-bezier(0.7, 0, 0.3, 1);
-  border-right: 1px solid #15171e; }
+  }
   .overlay.skew-part {
     -webkit-transform: skew(-25deg, 0deg);
     -moz-transform: skew(-25deg, 0deg);
