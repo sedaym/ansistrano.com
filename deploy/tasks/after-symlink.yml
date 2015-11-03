@@ -1,0 +1,4 @@
+- name: Ensure rights
+  file: path=/www/ansistrano.com recurse=yes owner=apache group=apache
+- name: Reload Apache
+  service: name=httpd state=reloaded
