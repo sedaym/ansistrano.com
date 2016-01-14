@@ -2,8 +2,8 @@
 - name: Deploy ansistrano.com to ansistrano.com server
   hosts: all
   vars:
-    ansistrano_deploy_from: "./"
     ansistrano_deploy_to: "/www/ansistrano.com"
     ansistrano_after_symlink_tasks_file: "{{ playbook_dir }}/deploy/tasks/after-symlink.yml"
+    ansistrano_keep_releases: 3
   roles:
     - { role: carlosbuenosvinos.ansistrano-deploy }
