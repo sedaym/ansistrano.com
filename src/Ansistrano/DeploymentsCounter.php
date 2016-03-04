@@ -59,7 +59,7 @@ class DeploymentsCounter
             'total' => (int) $this->statsRepository->get(self::TOTAL),
             'year' => (int) $this->statsRepository->get(sprintf(self::TOTAL_BY_YEAR, $year)),
             'month' => (int) $this->statsRepository->get(sprintf(self::TOTAL_BY_YEAR_AND_MONTH, $year, $month)),
-            'today' => (int) $this->statsRepository->get(sprintf(self::TOTAL_BY_YEAR_AND_MONTH, $year, $month, $day)),
+            'today' => (int) $this->statsRepository->get(sprintf(self::TOTAL_BY_DATE, $year, $month, $day)),
             'hour' => (int) $this->statsRepository->get(sprintf(self::TOTAL_BY_YEAR_AND_MONTH, $year, $month, $day, $hour)),
             'statsByWeekday' => $statsByWeekDay,
             'statsByWeekdayAndHour' => $statsByWeekDayAndHour
