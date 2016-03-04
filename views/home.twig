@@ -46,6 +46,15 @@
                     roles to easily manage the deployment process for scripting applications such as PHP, Python and Ruby.
                     It's an Ansible port for Capistrano.
                 </p>
+                <div class="progress">
+                    <div data-toggle="tooltip" title="Monday ({{ statsByWeekday.percentage.1 }} %)" class="progress-bar" style="width: {{ statsByWeekday.percentage.1 }}%;"></div>
+                    <div data-toggle="tooltip" title="Tuesday ({{ statsByWeekday.percentage.2 }} %)" class="progress-bar progress-bar-warning" style="width: {{ statsByWeekday.percentage.2 }}%;"></div>
+                    <div data-toggle="tooltip" title="Wednesday ({{ statsByWeekday.percentage.3 }} %)" class="progress-bar progress-bar-danger" style="width: {{ statsByWeekday.percentage.3 }}%;"></div>
+                    <div data-toggle="tooltip" title="Thursday ({{ statsByWeekday.percentage.4 }} %)" class="progress-bar progress-bar-success" style="width: {{ statsByWeekday.percentage.4 }}%;"></div>
+                    <div data-toggle="tooltip" title="Friday ({{ statsByWeekday.percentage.5 }} %)" class="progress-bar progress-bar-info" style="width: {{ statsByWeekday.percentage.5 }}%;"></div>
+                    <div data-toggle="tooltip" title="Saturday ({{ statsByWeekday.percentage.6 }} %)" class="progress-bar" style="width: {{ statsByWeekday.percentage.6 }}%;"></div>
+                    <div data-toggle="tooltip" title="Sunday ({{ statsByWeekday.percentage.0 }} %)" class="progress-bar progress-bar-warning" style="width: {{ statsByWeekday.percentage.0 }}%;"></div>
+                </div>
             </div>
         </div>
 
@@ -60,6 +69,12 @@
                 <!-- <div class="ct-chart ct-golden-section" id="chart1"></div> -->
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <h5>Developed with <i class="fa fa-heart" style="color:Red;"></i> in Barcelona and London</h5>
+            </div>
+        </div>
     {% endblock %}
 </div>
 
@@ -71,6 +86,10 @@
 <script src="/components/chartist/dist/chartist.min.js"></script>
 
 <script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+
     new Chartist.Bar('.ct-chart', {
         series: [
             [
