@@ -46,12 +46,9 @@ class DeploymentsCounter
         list($year, $month, $day, $dayOfWeek, $hour) = $this->splitDate($date);
 
         $statsByWeekDayAndHour = [];
-        $statsByWeekDay = [];
         foreach (range(0, 6) as $weekDay) {
-            $statsByWeekDay[$weekDay] = 0;
             foreach (range(0, 23) as $hourDay) {
-                $statsByWeekDayAndHour[$weekDay][$hourDay] = $this->statsRepository->get(sprintf(self::TOTAL_BY_WEEKDAY_AND_HOUR, $weekDay, $hour)) ?: 0;
-                $statsByWeekDay[$weekDay] += $statsByWeekDayAndHour[$weekDay][$hourDay];
+                $statsByWeekDayAndHour[$weekDay][$hourDay] = $this->statsRepository->get(sprintf(self::TOTAL_BY_WEEKDAY_AND_HOUR, $weekDay, $hourDay)) ?: 0;
             }
         }
 
@@ -61,7 +58,7 @@ class DeploymentsCounter
             'month' => (int) $this->statsRepository->get(sprintf(self::TOTAL_BY_YEAR_AND_MONTH, $year, $month)),
             'today' => (int) $this->statsRepository->get(sprintf(self::TOTAL_BY_DATE, $year, $month, $day)),
             'hour' => (int) $this->statsRepository->get(sprintf(self::TOTAL_BY_YEAR_AND_MONTH, $year, $month, $day, $hour)),
-            'statsByWeekday' => $statsByWeekDay,
+            'statsByWeekday' => [],
             'statsByWeekdayAndHour' => $statsByWeekDayAndHour
         ];
     }

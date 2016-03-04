@@ -29,13 +29,17 @@
         -->
         <!-- Social icons -->
         <div class="social-icons">
-            <a href="https://github.com/ansistrano" target="_blank"><i class="fa fa-github"></i></a>
-            <a href="https://twitter.com/ansistrano" target="_blank"><i class="fa fa-twitter"></i></a>
+
+
         </div>
 
         <div class="row">
             <div class="col-xs-12">
-                <h1>Ansistrano</h1>
+                <h1>
+                    Ansistrano
+                    <a href="https://github.com/ansistrano" target="_blank"><i class="fa fa-github"></i></a>
+                    <a href="https://twitter.com/ansistrano" target="_blank"><i class="fa fa-twitter"></i></a>
+                </h1>
                 <p class="lead">
                     <a href="https://github.com/ansistrano/deploy" target="_blank"><strong>ansistrano.deploy</strong></a> and
                     <a href="https://github.com/ansistrano/rollback" target="_blank"><strong>ansistrano.rollback</strong></a> are Ansible Galaxy
@@ -47,24 +51,15 @@
 
         <div class="row">
             <div class="col-xs-12">
-                <h4>Stats</h4>
+                <h4>Wow! {{ total }} deployments so far!</h4>
                 <p>
-                    A total of <strong>{{ total }}</strong> deployments have been performed since the beginning of the tracking. Today, there were just <strong>{{ today }}</strong> deployments meanwhile this month an amount of <strong>{{ month }}</strong>. This year was great with <strong>{{ year }}</strong> deployments.
+                    Today, teams using Ansistrano have deployed <strong>{{ today }}</strong> times already.
+                    When considering the whole month, the amount of deployments is <strong>{{ month }}</strong>
+                    and this year we've reached the <strong>{{ year }}</strong> deployments.
                 </p>
+                <!-- <div class="ct-chart ct-golden-section" id="chart1"></div> -->
             </div>
         </div>
-
-    <!--
-        <div class="row">
-            <div class="col-md-12">
-                <div class="ct-chart ct-golden-section" id="chart1"></div>
-            </div>
-            <div class="col-md-6">
-                <h4>Deployments by hour</h4>
-                <div class="ct-chart ct-golden-section" id="chart2"></div>
-            </div>
-        </div>
-    -->
     {% endblock %}
 </div>
 
@@ -76,32 +71,25 @@
 <script src="/components/chartist/dist/chartist.min.js"></script>
 
 <script>
-    new Chartist.Pie('#chart1', {
-        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        series: [{{ statsByWeekday.1 }}, {{ statsByWeekday.2 }}, {{ statsByWeekday.3 }}, {{ statsByWeekday.4 }}, {{ statsByWeekday.5 }}, {{ statsByWeekday.6 }}, {{ statsByWeekday.0 }}]
-    }, {
-        donut: true,
-        startAngle: 270,
-        total: {{ total * 2 }},
-        donutWidth: 60
-    });
-
-    /*
-    new Chartist.Bar('#chart2', {
-        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    new Chartist.Bar('.ct-chart', {
         series: [
+            [
             {% for weekDay in statsByWeekdayAndHour %}
-                [
-                    {% for hourDay in weekDay %}
-                        {{ hourDay }},
-                    {% endfor %}
-                ],
+                {% for hourDay in weekDay %}
+                {{ hourDay }},
+                {% endfor %}
             {% endfor %}
+            ]
         ]
     }, {
-        stackBars: true
+        axisX: {
+            showGrid: false,
+        },
+        axisY: {
+            showGrid: false,
+            offset: 70
+        }
     });
-    */
 </script>
 </body>
 </html>
