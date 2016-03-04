@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-us" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>Ansistrano</title>
+    <meta name="description" content="Deploying applications with Ansible in Capistrano style">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="assets/chartist/dist/chartist.min.css">
+    <link rel="stylesheet" href="css/style-minimal.css" />
+
+    <script src="js/modernizr.custom.js"></script>
+</head>
+<body>
+
+<!-- Page preloader -->
+<div id="loading">
+    <div id="preloader">
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+<!-- Overlay -->
+<div class="global-overlay">
+    <div class="overlay skew-part"></div>
+</div>
+
+<!-- START - Home/Left Part -->
+<section id="left-side" class="minimal-phone">
+
+    <img src="/img/logo.png" style="width: 150px; height: 150px;" alt="Ansistrano" class="brand-logo" />
+
+    <div class="content">
+        <h1 class="text-intro opacity-0">{{ total }} deployments</h1>
+        <h2 class="text-intro opacity-0">
+            <a href="https://github.com/ansistrano/deploy" target="_blank"><strong>ansistrano.deploy</strong></a> and
+            <a href="https://github.com/ansistrano/rollback" target="_blank"><strong>ansistrano.rollback</strong></a> are Ansible Galaxy
+            roles to easily manage the deployment process for scripting applications such as PHP, Python and Ruby.
+            It's an Ansible port for Capistrano.
+        </h2>
+    </div>
+
+    <div class="ct-chart ct-perfect-fourth"></div>
+
+    <!-- Social icons -->
+    <div class="social-icons">
+        <a href="https://github.com/ansistrano" target="_blank"><i class="fa fa-github"></i></a>
+        <a href="https://twitter.com/ansistrano" target="_blank"><i class="fa fa-twitter"></i></a>
+    </div>
+</section>
+<!-- END - Home/Left Part -->
+
+<!-- START - Newsletter Popup -->
+<div id="somedialog" class="dialog">
+    <div class="dialog__overlay"></div>
+    <div class="dialog__content">
+        <div class="dialog-inner">
+            <h4>You like taking the lead of line?</h4>
+
+            <p>Being the first to know always feels great... Signing up to our newsletter gives you <strong>exclusive access to our Grand Opening!</strong></p>
+
+            <!-- Newsletter Form -->
+            <div id="subscribe">
+
+                <form action="php/notify-me.php" id="notifyMe" method="POST">
+
+                    <div class="form-group">
+
+                        <div class="controls">
+
+                            <!-- Field  -->
+                            <input type="text" id="mail-sub" name="email" placeholder="Click here to write your email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Click here to write your email'" class="form-control email srequiredField" />
+
+                            <!-- Spinner top left during the submission -->
+                            <i class="fa fa-spinner opacity-0"></i>
+
+                            <!-- Button -->
+                            <button class="btn btn-lg submit">Get notified</button>
+
+                            <div class="clear"></div>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+                <!-- Answer for the newsletter form is displayed in the next div, do not remove it. -->
+                <div class="block-message">
+
+                    <div class="message">
+
+                        <p class="notify-valid"></p>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- /. Newsletter Form -->
+
+        </div>
+        <!-- /. dialog-inner -->
+
+        <!-- Button Cross to close the Newsletter Popup -->
+        <button class="close-newsletter" data-dialog-close><i class="icon ion-close-round"></i></button>
+
+    </div>
+    <!-- /. dialog__content -->
+
+</div>
+<!-- END - Newsletter Popup -->
+
+<!-- ///////////////////\\\\\\\\\\\\\\\\\\\ -->
+<!-- ********** Resources jQuery ********** -->
+<!-- \\\\\\\\\\\\\\\\\\\/////////////////// -->
+
+<!-- * Libraries jQuery, Easing and Bootstrap - Be careful to not remove them * -->
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.easings.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<!-- PhotoSwipe Core JS file -->
+<script src="js/velocity.min.js"></script>
+
+<!-- PhotoSwipe UI JS file -->
+<script src="js/velocity.ui.min.js"></script>
+
+<!-- Newsletter plugin -->
+<script src="js/notifyMe.js"></script>
+
+<!-- Slideshow/Image plugin -->
+<script src="js/vegas.js"></script>
+
+<!-- Scroll plugin -->
+<script src="js/jquery.mousewheel.js"></script>
+
+<!-- Custom Scrollbar plugin -->
+<script src="js/jquery.mCustomScrollbar.js"></script>
+
+<!-- Popup Newsletter Form -->
+<script src="js/classie.js"></script>
+<script src="js/dialogFx.js"></script>
+
+<!-- Countdown plugin -->
+<script src="js/jquery.countdown.js"></script>
+
+<!-- Main JS File -->
+<script src="js/main.js"></script>
+
+<!--[if lt IE 10]><script type="text/javascript" src="js/placeholder.js"></script><![endif]-->
+<script src="assets/chartist/dist/chartist.min.js"></script>
+
+<script>
+    new Chartist.Pie('.ct-chart', {
+        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        series: [{{ statsByWeekday.1 }}, {{ statsByWeekday.2 }}, {{ statsByWeekday.3 }}, {{ statsByWeekday.4 }}, {{ statsByWeekday.5 }}, {{ statsByWeekday.6 }}, {{ statsByWeekday.0 }}]
+    }, {
+        donut: true,
+        donutWidth: 60,
+        chartPadding: 30,
+        labelOffset: 50,
+        labelDirection: 'explode'
+    });
+</script>
+
+</body>
+
+</html>
