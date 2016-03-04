@@ -1,0 +1,18 @@
+.has-error ul {
+    list-style: none;
+    padding-left: 0px;
+    font-size: 13px;
+}
+
+form ul {
+    list-style: none;
+    padding-left: 0px;
+    font-size: 13px;
+}
+
+body {
+    padding-top: 70px;
+    background-size: cover;
+    /* background: rgb(32, 35, 45) url("/img/slide-bridge.jpg") fixed 50% 50%; */
+    /* color: whitesmoke; */
+}
