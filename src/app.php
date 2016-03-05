@@ -2,6 +2,7 @@
 
 use Ansistrano\DeploymentsCounter;
 use Ansistrano\RedisStatsRepository;
+use Geocoder\Provider\GeocoderServiceProvider;
 use Predis\Client;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -11,9 +12,19 @@ $app = new Silex\Application();
 
 $app['debug'] = true;
 
+$app->register(new GeocoderServiceProvider());
+
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views',
 ));
+
+$app['twig'] = $app->share($app->extend('twig', function($twig, $app) {
+    $twig->addFilter('to_weekday_name', new Twig_SimpleFilter('to_weekday_name', function($string) {
+        return ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][$string];
+    }));
+
+    return $twig;
+}));
 
 $app['now'] = new \DateTimeImmutable('now', new \DateTimeZone('UTC'));
 

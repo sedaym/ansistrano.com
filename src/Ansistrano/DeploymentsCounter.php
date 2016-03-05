@@ -46,6 +46,7 @@ class DeploymentsCounter
         list($year, $month, $day, $dayOfWeek, $hour) = $this->splitDate($date);
 
         $statsByWeekDayAndHour = [];
+        $statsByWeekDayAndHourMax = 0;
 
         $statsByWeekDay = new \stdClass();
         $statsByWeekDay->percentage = [];
@@ -56,6 +57,10 @@ class DeploymentsCounter
             $statsByWeekDay->days[$weekDay] = 0;
             foreach (range(0, 23) as $hourDay) {
                 $statsByWeekDayAndHour[$weekDay][$hourDay] = $this->statsRepository->get(sprintf(self::TOTAL_BY_WEEKDAY_AND_HOUR, $weekDay, $hourDay)) ?: 0;
+                if($statsByWeekDayAndHour[$weekDay][$hourDay] > $statsByWeekDayAndHourMax) {
+                    $statsByWeekDayAndHourMax = $statsByWeekDayAndHour[$weekDay][$hourDay];
+                }
+
                 $statsByWeekDay->days[$weekDay] += $statsByWeekDayAndHour[$weekDay][$hourDay];
             }
             $statsByWeekDay->total += $statsByWeekDay->days[$weekDay];
@@ -72,7 +77,8 @@ class DeploymentsCounter
             'today' => (int) $this->statsRepository->get(sprintf(self::TOTAL_BY_DATE, $year, $month, $day)),
             'hour' => (int) $this->statsRepository->get(sprintf(self::TOTAL_BY_YEAR_AND_MONTH, $year, $month, $day, $hour)),
             'statsByWeekday' => $statsByWeekDay,
-            'statsByWeekdayAndHour' => $statsByWeekDayAndHour
+            'statsByWeekdayAndHour' => $statsByWeekDayAndHour,
+            'statsByWeekDayAndHourMax' => $statsByWeekDayAndHourMax
         ];
     }
 
