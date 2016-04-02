@@ -17,5 +17,8 @@
         "psr-0": {
             "Ansistrano": "src"
         }
+    },
+    "scripts": {
+        "deploy": "ansible-playbook deploy.yml -i hosts"
     }
 }

@@ -19,3 +19,6 @@
 
 ## Visit the home
     http://localhost:8080
+
+## Visit the home
+    composer deploy
