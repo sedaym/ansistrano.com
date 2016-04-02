@@ -57,6 +57,22 @@ $app->post('/deploy', function() use($app) {
     return new JsonResponse(['success' => true]);
 });
 
+$app->post('/rollback', function() use($app) {
+    try {
+        $app['deployments_counter']->addRollback($app['now']);
+    } catch(\Exception $e) {
+
+        $res = ['error' => true];
+        if ($app['debug']) {
+            $res['msg'] = $e->getMessage();
+        }
+
+        return new JsonResponse($res, 500);
+    }
+
+    return new JsonResponse(['success' => true]);
+});
+
 $app->get('/', function() use($app) {
     return $app['twig']->render('home.twig', $app['deployments_counter']->statsFor($app['now']));
 });

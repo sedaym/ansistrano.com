@@ -45,11 +45,11 @@
 
         <div class="row">
             <div class="col-xs-12">
-                <h4>Wow! {{ total }} deployments so far!</h4>
+                <h4>Wow! {{ deployments.total }} deployments so far!</h4>
                 <p>
-                    Today, teams using Ansistrano have deployed <strong>{{ today }}</strong> times already.
-                    When considering the whole month, the amount of deployments is <strong>{{ month }}</strong>
-                    and this year we've reached the <strong>{{ year }}</strong> deployments.
+                    Today, teams using Ansistrano have deployed <strong>{{ deployments.today }}</strong> times already.
+                    When considering the whole month, the amount of deployments is <strong>{{ deployments.month }}</strong>
+                    and this year we've reached the <strong>{{ deployments.year }}</strong> deployments.
                 </p>
             </div>
         </div>
@@ -60,19 +60,19 @@
                     Deployments by weekday
                 </h4>
                 <div class="progress">
-                    <div data-toggle="tooltip" title="{{ 1|to_weekday_name }}: {{ statsByWeekday.percentage.1 }}%" class="progress-bar" style="width: {{ statsByWeekday.percentage.1 }}%;"></div>
-                    <div data-toggle="tooltip" title="{{ 2|to_weekday_name }}: {{ statsByWeekday.percentage.2 }}%" class="progress-bar progress-bar-warning" style="width: {{ statsByWeekday.percentage.2 }}%;"></div>
-                    <div data-toggle="tooltip" title="{{ 3|to_weekday_name }}: {{ statsByWeekday.percentage.3 }}%" class="progress-bar progress-bar-danger" style="width: {{ statsByWeekday.percentage.3 }}%;"></div>
-                    <div data-toggle="tooltip" title="{{ 4|to_weekday_name }}: {{ statsByWeekday.percentage.4 }}%" class="progress-bar progress-bar-success" style="width: {{ statsByWeekday.percentage.4 }}%;"></div>
-                    <div data-toggle="tooltip" title="{{ 5|to_weekday_name }}: {{ statsByWeekday.percentage.5 }}%" class="progress-bar progress-bar-info" style="width: {{ statsByWeekday.percentage.5 }}%;"></div>
-                    <div data-toggle="tooltip" title="{{ 6|to_weekday_name }}: {{ statsByWeekday.percentage.6 }}%" class="progress-bar" style="width: {{ statsByWeekday.percentage.6 }}%;"></div>
-                    <div data-toggle="tooltip" title="{{ 0|to_weekday_name }}: {{ statsByWeekday.percentage.0 }}%" class="progress-bar progress-bar-warning" style="width: {{ statsByWeekday.percentage.0 }}%;"></div>
+                    <div data-toggle="tooltip" title="{{ 1|to_weekday_name }}: {{ deployments.statsByWeekday.percentage.1 }}%" class="progress-bar" style="width: {{ deployments.statsByWeekday.percentage.1 }}%;"></div>
+                    <div data-toggle="tooltip" title="{{ 2|to_weekday_name }}: {{ deployments.statsByWeekday.percentage.2 }}%" class="progress-bar progress-bar-warning" style="width: {{ deployments.statsByWeekday.percentage.2 }}%;"></div>
+                    <div data-toggle="tooltip" title="{{ 3|to_weekday_name }}: {{ deployments.statsByWeekday.percentage.3 }}%" class="progress-bar progress-bar-danger" style="width: {{ deployments.statsByWeekday.percentage.3 }}%;"></div>
+                    <div data-toggle="tooltip" title="{{ 4|to_weekday_name }}: {{ deployments.statsByWeekday.percentage.4 }}%" class="progress-bar progress-bar-success" style="width: {{ deployments.statsByWeekday.percentage.4 }}%;"></div>
+                    <div data-toggle="tooltip" title="{{ 5|to_weekday_name }}: {{ deployments.statsByWeekday.percentage.5 }}%" class="progress-bar progress-bar-info" style="width: {{ deployments.statsByWeekday.percentage.5 }}%;"></div>
+                    <div data-toggle="tooltip" title="{{ 6|to_weekday_name }}: {{ deployments.statsByWeekday.percentage.6 }}%" class="progress-bar" style="width: {{ deployments.statsByWeekday.percentage.6 }}%;"></div>
+                    <div data-toggle="tooltip" title="{{ 0|to_weekday_name }}: {{ deployments.statsByWeekday.percentage.0 }}%" class="progress-bar progress-bar-warning" style="width: {{ deployments.statsByWeekday.percentage.0 }}%;"></div>
                 </div>
             </div>
         </div>
 
         <!--
-        {% for weekDayKey, weekDay in statsByWeekdayAndHour %}
+        {% for weekDayKey, weekDay in deployments.statsByWeekdayAndHour %}
             <div class="row">
                 <div class="col-xs-12">
                     <h4>{{ weekDayKey|to_weekday_name }}</h4>
@@ -83,7 +83,7 @@
                     <div class="col-xs-12">
                         <span style="padding-right: 10px; float: left;">{{ hourDayKey }}:00</span>
                         <div class="progress" style="margin-bottom: 0px; margin-top: 8px; float:none;">
-                            <div class="progress-bar" style="width: {{ (hourDay * 100 / statsByWeekDayAndHourMax)|number_format }}%;"></div>
+                            <div class="progress-bar" style="width: {{ (hourDay * 100 / deployments.statsByWeekDayAndHourMax)|number_format }}%;"></div>
                         </div>
                     </div>
                 </div>
